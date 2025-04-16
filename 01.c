@@ -1,34 +1,28 @@
-//  Write a C program that takes the marks of a student as input and displays the corresponding 
-// grade based on the following conditions: 
-// o Marks > 90: Grade A 
-// o Marks > 75 and <= 90: Grade B 
-// o Marks > 50 and <= 75: Grade C 
-// o Marks <= 50: Grade D 
-//  Use if-else or switch statements for the decision-making process.
-
+// Write a C program that checks whether a given number is a prime number or not using a for loop.
 
 #include <stdio.h>
 
 int main() {
-    int marks;
+    int num, i, isPrime = 1;
 
-    
-    printf("Enter the marks of the student: ");
-    scanf("%d", &marks);
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-   
-    if (marks > 90) {
-        printf("Grade A\n");
+    if (num <= 1) {
+        isPrime = 0; // 0 and 1 are not prime numbers
+    } else {
+        for (i = 2; i <= num / 2; i++) {
+            if (num % i == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
     }
-    else if (marks > 75 && marks <= 90) {
-        printf("Grade B\n");
-    }
-    else if (marks > 50 && marks <= 75) {
-        printf("Grade C\n");
-    }
-    else {
-        printf("Grade D\n");
-    }
+
+    if (isPrime)
+        printf("%d is a prime number.\n", num);
+    else
+        printf("%d is not a prime number.\n", num);
 
     return 0;
 }
